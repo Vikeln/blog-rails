@@ -1,0 +1,38 @@
+
+<%= form_with model: post do |form| %>
+<%#= form_with url: "/posts", method: :post do |form| %>
+  <div class="form-group">
+    <%= form.label :name %><br>
+    <%= form.text_field :name%>
+
+    <% post.errors.full_messages_for(:name).each do |message| %>
+      <div class="text-danger"><%= message %></div>
+    <% end %>
+
+  </div>
+
+  <div class="form-group">
+    <%= form.label :author %><br>
+    <%= form.text_field :author %>
+
+    <% post.errors.full_messages_for(:author).each do |message| %>
+      <div class="text-danger"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :ranking %><br>
+    <%= form.text_field :avg_ranking %>
+
+    <% post.errors.full_messages_for(:avg_ranking).each do |message| %>
+      <div class="text-danger"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+      <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+    </div>
+  <div class="form-group">
+    <%= form.submit "Save Post" %>
+  </div>
+<% end %>

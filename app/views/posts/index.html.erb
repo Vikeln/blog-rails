@@ -1,0 +1,65 @@
+
+<h1>Guy Blog Posts</h1>
+<div class="container">
+
+  <p>Our blog has <%= Post.public_count %> posts and counting!</p>
+
+  <table class="table table-stripped table-responsive table-small">
+    <thead class="thead-dark">
+      <th>#</th>
+      <th><%= link_to "Article", :sort => "name"%> </th>
+      <th><%= link_to "Author", :sort => "author"%> </th>
+      <th><%= link_to "Avg. Ranking", :sort => "avg_ranking"%> </th>
+      <th>Status</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+
+    <% @posts.each_with_index do | post, index| %>
+
+      <% unless post.archived? %>
+      <tr>
+        <td>
+          <%= index+1 %>
+        </td>
+        <td>
+          <%= link_to post.name, post %>
+        </td>
+        <td><%=post.author %></td>
+        <td><%=post.avg_ranking %></td>
+        <td><%=post.status %></td>
+        <td>
+
+          <div class="dropdown">
+
+            <a href="#" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="i-con i-con-more">
+                <i></i>
+              </i>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <div class="dropdown-item" >
+                <%= link_to "Edit", edit_post_path(post) %>
+              </div>
+
+              <div class="dropdown-item" >
+
+                <%= button_to 'Destroy',
+                            post_path(post),
+                            method: :delete %>
+
+              </div>
+            </div>
+          </div>
+          
+        </td>
+      </tr>
+
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+  <%= link_to "New Blog Post", new_post_path %>
+
+</div>

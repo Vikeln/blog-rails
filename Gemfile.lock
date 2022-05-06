@@ -68,9 +68,13 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    autoprefixer-rails (10.4.7.0)
+      execjs (~> 2)
     bindex (0.8.1)
     bootsnap (1.11.1)
       msgpack (~> 1.2)
+    bootstrap-sass (3.2.0.4)
+      sass (~> 3.2)
     builder (3.2.4)
     capybara (3.36.0)
       addressable
@@ -89,6 +93,8 @@ GEM
       reline (>= 0.2.7)
     digest (3.1.0)
     erubi (1.10.0)
+    execjs (2.8.1)
+    ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.10.0)
@@ -128,7 +134,7 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.4-x64-mingw-ucrt)
+    nokogiri (1.13.5-x64-mingw-ucrt)
       racc (~> 1.4)
     public_suffix (4.0.7)
     puma (5.6.4)
@@ -164,11 +170,19 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    rb-fsevent (0.11.1)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
     regexp_parser (2.3.1)
     reline (0.3.1)
       io-console (~> 0.5)
     rexml (3.2.5)
     rubyzip (2.3.2)
+    sass (3.7.4)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -213,7 +227,9 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
+  autoprefixer-rails
   bootsnap
+  bootstrap-sass (~> 3.2.0)
   capybara
   debug
   importmap-rails

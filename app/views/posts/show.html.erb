@@ -1,0 +1,13 @@
+
+<h1><%= @post.name %></h1>
+
+<p>Author Name : <%= @post.author %></p>
+<p>Post Ranking <%= @post.avg_ranking %></p>
+
+<h2>Comments</h2>
+<%= render @post.comments %>
+
+<h2>Add a comment:</h2>
+
+<%= render "comments/form" %>
+
